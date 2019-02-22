@@ -1,0 +1,86 @@
+// Copyright 2015 gRPC authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.helloworld";
+option java_outer_classname = "HelloWorldProto";
+option objc_class_prefix = "HLW";
+
+package Rest; //helloworld;
+
+// The RestService service definition.
+service RestService {
+  rpc FrtPut (FrtProxy) returns (StatusReply) {}
+  rpc OphPut (OphProxy) returns (StatusReply) {}
+}
+
+message StatusReply {
+	int32 ErrNo = 1;	// 0:NoError
+	string Msg = 2;
+}
+
+message FrtProxy {
+	int32 FRTID  = 1;
+	string ADN   = 2;
+	string AD    = 3;
+	string LOCID = 4;
+	string PWD   = 5;
+}
+
+message OphProxy {
+    int32  OPHID  = 1;
+    int32  OPMID  = 2;
+    string REFNO  = 3;
+    int64  EXD    = 4;
+    string ROT    = 5;
+    string MOT    = 6;
+    string ORG    = 7;
+    string DST    = 8;
+    int32  SHPID  = 9;
+    int32  CNEID  = 10;
+    int32  ACCID  = 11;
+    int32  MNFID  = 12;
+    int32  NFYID  = 13;
+    int32  CRRID  = 14;
+    string NSTU   = 15;
+    string PSTU   = 16;
+    string DTM    = 17;
+    string PTM	  = 18;
+    int32  NOP    = 19;
+    float  GRW    = 20;
+    float  VM3    = 21;
+    int32  CHW    = 22;
+    int64  NSTUTS = 23;
+    int64  PSTUTS = 24;
+    int64  ROH    = 25;
+    int64  ROS    = 26;
+    int64  EOH    = 27;
+    int64  REOH   = 28;
+    int64  AOH    = 29;
+    int64  AOC    = 30;
+    int64  RTR    = 31;
+    int64  RTD    = 32;
+    int64  POD    = 33;
+    string PODINF = 34;
+    int64  DRBD   = 35;
+    int64  DRCD   = 36;
+    string DDT    = 37;
+    string CABW   = 38;
+    string CUSLOC = 39;
+    string CNTNOS = 40;
+    string OTHINF = 41;
+
+}
