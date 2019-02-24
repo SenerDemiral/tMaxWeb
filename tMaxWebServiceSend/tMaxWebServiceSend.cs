@@ -52,8 +52,11 @@ namespace tMaxWebServiceSend
                 eventLog1.WriteEntry("Sending..", EventLogEntryType.Information, eventId++);
 
                 sending = true;
-
+                //RestClient.SendWithGrpc send = new RestClient.SendWithGrpc();
+                //send.FrtSend("M");   // Send modified
                 RestClient.SendWithGrpc.FrtSend("M");   // Send modified
+                RestClient.SendWithGrpc.OpmSend("M");   // Send modified
+                RestClient.SendWithGrpc.OphSend("M");   // Send modified
 
                 sending = false;
             }

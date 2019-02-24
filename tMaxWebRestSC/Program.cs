@@ -3,12 +3,10 @@ using Grpc.Core;
 using Starcounter;
 using System.Linq;
 
-namespace tMaxWebRestServer
+namespace tMaxWebRestSC
 {
     class Program
     {
-        const int Port = 50055;
-
         static void Main()
         {
             if (Db.SQL("SELECT i FROM Starcounter.Metadata.\"Index\" i WHERE Name = ?", "AAA").FirstOrDefault() != null)
@@ -25,14 +23,14 @@ namespace tMaxWebRestServer
             Server server = new Server
             {
                 Services = { Rest.RestService.BindService(new RestServiceImpl()) },
-                Ports = { new ServerPort("127.0.0.1", Port, ServerCredentials.Insecure) }
-                //Ports = { new ServerPort("217.160.13.102", Port, ServerCredentials.Insecure) }
+                Ports = { new ServerPort("127.0.0.1", 50055, ServerCredentials.Insecure) }
+                //Ports = { new ServerPort("217.160.13.102", 50055, ServerCredentials.Insecure) }
             };
             server.Start();
 
-            Console.WriteLine("Rest server listening on port " + Port);
+            Console.WriteLine("Rest server listening on port 50055");
 
-            Handle.GET("/tMaxWebRestServerStop", () =>
+            Handle.GET("/tMaxWebRestSCStop", () =>
             {
                 //Task.Run(async () => { await server.ShutdownAsync(); }).Wait();
                 server.ShutdownAsync().Wait();
@@ -41,5 +39,4 @@ namespace tMaxWebRestServer
 
         }
     }
-
 }

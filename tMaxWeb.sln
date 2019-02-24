@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestClientWin", "RestClient
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBTM", "DB\DBTM.csproj", "{A0079084-63C8-4BA2-A96F-273437A8AD28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tMaxWebRestSC", "tMaxWebRestSC\tMaxWebRestSC.csproj", "{5B3BD0B0-9368-459E-9D72-F036F215BAA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,12 @@ Global
 		{A0079084-63C8-4BA2-A96F-273437A8AD28}.Release|Any CPU.ActiveCfg = Release|x64
 		{A0079084-63C8-4BA2-A96F-273437A8AD28}.Release|x64.ActiveCfg = Release|x64
 		{A0079084-63C8-4BA2-A96F-273437A8AD28}.Release|x64.Build.0 = Release|x64
+		{5B3BD0B0-9368-459E-9D72-F036F215BAA3}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{5B3BD0B0-9368-459E-9D72-F036F215BAA3}.Debug|x64.ActiveCfg = Debug|x64
+		{5B3BD0B0-9368-459E-9D72-F036F215BAA3}.Debug|x64.Build.0 = Debug|x64
+		{5B3BD0B0-9368-459E-9D72-F036F215BAA3}.Release|Any CPU.ActiveCfg = Release|x64
+		{5B3BD0B0-9368-459E-9D72-F036F215BAA3}.Release|x64.ActiveCfg = Release|x64
+		{5B3BD0B0-9368-459E-9D72-F036F215BAA3}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

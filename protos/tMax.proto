@@ -24,6 +24,7 @@ package Rest; //helloworld;
 // The RestService service definition.
 service RestService {
   rpc FrtPut (FrtProxy) returns (StatusReply) {}
+  rpc OpmPut (OpmProxy) returns (StatusReply) {}
   rpc OphPut (OphProxy) returns (StatusReply) {}
 }
 
@@ -33,11 +34,45 @@ message StatusReply {
 }
 
 message FrtProxy {
-	int32 FRTID  = 1;
+	int32  FRTID = 1;
 	string ADN   = 2;
 	string AD    = 3;
 	string LOCID = 4;
 	string PWD   = 5;
+}
+
+message OpmProxy {
+    int32   OPMID   = 1;
+    string  REFNO   = 2;
+    int64   EXD     = 3;
+    string  ROT     = 4;
+    string  MOT     = 5;
+    string  ORG     = 6;
+    string  DST     = 7;
+    string  POU     = 8;
+    int32   SHPID   = 9;
+    int32   CNEID   = 10;
+    int32   ACCID   = 11;
+    int32   CRRID   = 12;
+    string  NSTU    = 13;
+    string  PSTU    = 14;
+    int64   ETD     = 15;
+    int64   ATD     = 16;
+    int64   ETA     = 17;
+    int64   ATA     = 18;
+    int64   RETD    = 19;
+    int64   RETA    = 20;
+    int64   ACOT    = 21;
+    int64   TPAD    = 22;
+    int64   TPDD    = 23;
+    int64   ROH     = 24;
+    int64   RTD     = 25;
+    string  VHC     = 26;
+    string  INF     = 27;
+    string  HNDINF  = 28;
+    string  CNTNOS  = 29;
+    string  SEALNOS = 30;
+    string  PINFOS  = 31;
 }
 
 message OphProxy {
@@ -60,8 +95,8 @@ message OphProxy {
     string DTM    = 17;
     string PTM	  = 18;
     int32  NOP    = 19;
-    float  GRW    = 20;
-    float  VM3    = 21;
+    double GRW    = 20;
+    double VM3    = 21;
     int32  CHW    = 22;
     int64  NSTUTS = 23;
     int64  PSTUTS = 24;
