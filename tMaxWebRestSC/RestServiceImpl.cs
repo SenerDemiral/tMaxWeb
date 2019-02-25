@@ -25,6 +25,8 @@ namespace tMaxWebRestSC
             }
             else
             {
+                Program.sw.Restart();
+
                 Scheduling.RunTask(() =>
                 {
                     Db.Transact(() =>
@@ -34,17 +36,14 @@ namespace tMaxWebRestSC
                             FRT row = Db.SQL<FRT>("select r from FRT r where r.FrtId = ?", prxy.FRTID).FirstOrDefault();
 
                             if (row == null)    // Kayit yok, Insert
-                            {
                                 row = new FRT();
-                                ProxyHelper.FromProxy2<FrtProxy, FRT>(prxy, row);
-                            }
-                            else
-                            {
-                                ProxyHelper.FromProxy2<FrtProxy, FRT>(prxy, row);
-                            }
+
+                            ProxyHelper.FromProxy2<FrtProxy, FRT>(prxy, row);
                         }
                     });
                 }).Wait();
+
+                Program.sw.Stop();
 
                 FrtProxyList.Clear();
             }
@@ -68,14 +67,9 @@ namespace tMaxWebRestSC
                             OPM row = Db.SQL<OPM>("select r from OPM r where r.OPMID = ?", prxy.OPMID).FirstOrDefault();
 
                             if (row == null)    // Kayit yok, Insert
-                            {
                                 row = new OPM();
-                                ProxyHelper.FromProxy2<OpmProxy, OPM>(prxy, row);
-                            }
-                            else
-                            {
-                                ProxyHelper.FromProxy2<OpmProxy, OPM>(prxy, row);
-                            }
+
+                            ProxyHelper.FromProxy2<OpmProxy, OPM>(prxy, row);
                             row.SHP = Db.SQL<FRT>("select r from FRT r where r.FRTID = ?", prxy.SHPID).FirstOrDefault();
                             row.CNE = Db.SQL<FRT>("select r from FRT r where r.FRTID = ?", prxy.CNEID).FirstOrDefault();
                             row.ACC = Db.SQL<FRT>("select r from FRT r where r.FRTID = ?", prxy.ACCID).FirstOrDefault();
@@ -107,15 +101,9 @@ namespace tMaxWebRestSC
                             OPH row = Db.SQL<OPH>("select r from OPH r where r.OPHID = ?", prxy.OPHID).FirstOrDefault();
                             
                             if (row == null)    // Kayit yok, Insert
-                            {
                                 row = new OPH();
-                                ProxyHelper.FromProxy2<OphProxy, OPH>(prxy, row);
-                            }
-                            else
-                            {
-                                ProxyHelper.FromProxy2<OphProxy, OPH>(prxy, row);
-                            }
 
+                            ProxyHelper.FromProxy2<OphProxy, OPH>(prxy, row);
                             row.OPM = Db.SQL<OPM>("select r from OPM r where r.OPMID = ?", prxy.OPMID).FirstOrDefault();
                             row.SHP = Db.SQL<FRT>("select r from FRT r where r.FRTID = ?", prxy.SHPID).FirstOrDefault();
                             row.CNE = Db.SQL<FRT>("select r from FRT r where r.FRTID = ?", prxy.CNEID).FirstOrDefault();

@@ -2,11 +2,15 @@
 using Grpc.Core;
 using Starcounter;
 using System.Linq;
+using System.Diagnostics;
+using DBTM;
 
 namespace tMaxWebRestSC
 {
     class Program
     {
+        public static Stopwatch sw = new Stopwatch();
+
         static void Main()
         {
             if (Db.SQL("SELECT i FROM Starcounter.Metadata.\"Index\" i WHERE Name = ?", "AAA").FirstOrDefault() != null)
@@ -36,6 +40,25 @@ namespace tMaxWebRestSC
                 server.ShutdownAsync().Wait();
                 return "ShutDown gRPC Server OK";
             });
+
+
+            Handle.GET("/d1", () =>
+            {
+                int nor = 0;
+                decimal vm3 = 0;
+
+                sw.Restart();
+                foreach(var h in Db.SQL<OPH>("select r from OPH r"))// where r.OPHID < ?", 2_000_000))
+                {
+                    nor++;
+                    vm3 += h.VM3;
+
+                }
+                sw.Stop();
+
+                return $"{nor:n0} records retrieved in {sw.ElapsedMilliseconds:n0} ms";
+            });
+
 
         }
     }

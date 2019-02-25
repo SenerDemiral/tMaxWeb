@@ -26,8 +26,8 @@ namespace RestClient.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("character set=WIN1254;data source=LOCALHOST;user id=sysdba;Password=masterkey;ini" +
-            "tial catalog=C:\\DATA\\tMax\\TMAX14-181115.FDB")]
+        [global::System.Configuration.DefaultSettingValueAttribute("character set=WIN1254;data source=LOCALHOST;user id=sysdba;password=masterkey;ini" +
+            "tial catalog=C:\\DATA\\tMax\\TMAX14-181115.FDB;connectionlifetime=30;pooling=True")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));
